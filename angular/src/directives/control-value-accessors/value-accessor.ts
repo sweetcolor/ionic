@@ -54,10 +54,11 @@ function setIonicClasses(element: ElementRef) {
       'ion-pristine'
     );
 
-    classList.forEach((cls: string) => {
-      if (cls.startsWith('ng-')) {
-        classList.add(`ion-${cls.substr(3)}`);
+    for (let i = 0; i < classList.length; i++) {
+      const item = classList.item(i);
+      if (item && item.startsWith('ng-')) {
+        classList.add(`ion-${item.substr(3)}`);
       }
-    });
+    }
   });
 }
